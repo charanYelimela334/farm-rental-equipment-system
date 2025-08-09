@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  springboot:
+    build: .
+    container_name: springboot_farm_rental_system
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_APPLICATION_NAME: ${MYSQL_DATABASE}
+      SPRING_DATASOURCE_URL: jdbc:mysql://${MYSQL_HOST}:3306/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_USERNAME: admin               # Use your RDS username
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
+
+      # Email configuration
+      SPRING_MAIL_HOST: smtp.gmail.com
+      SPRING_MAIL_PORT: 587
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD}
+      SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH: "true"
+      SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE: "true"
+      SPRING_MAIL_PROPERTIES_MAIL_DEBUG: "true"
+
+      # Swagger
+      SPRINGDOC_API_DOCS_PATH: /documentation
+      SPRINGDOC_SWAGGER_UI_PATH: /swagger.html
