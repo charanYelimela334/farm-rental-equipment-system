@@ -73,5 +73,5 @@ This is a complete **Spring Boot backend system** for a Farm Equipment Rental pl
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/dinesh2004-dev/Projects/new/main/farm-rental-equipment-system
-   cd farm-equipment-backend
+   https://github.com/charanYelimela334/farm-rental-equipment-system.git
+   cd farm-rental-equipment-system.git
